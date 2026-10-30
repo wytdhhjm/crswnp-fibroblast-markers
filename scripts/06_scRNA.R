@@ -1,8 +1,8 @@
 # 06_scRNA.R
 # 第 3 步：单细胞定位核心基因（GSE235711，Immunity 2025）
 #
-# 样本：健康对照筛窦黏膜 5、CRSwNP 鼻息肉 6（主分析）；
-#       CRSsNP 筛窦 5、CRSwNP 筛窦 6（补充，下载完成则一并纳入）
+# 样本：健康对照筛窦黏膜 5、CRSwNP 鼻息肉 6（本脚本只用这 11 个）；
+#       CRSsNP 筛窦 5、CRSwNP 筛窦 6 已下载但未纳入
 # 流程：
 #   1) 读取 10x 过滤矩阵（仅取 Gene Expression，忽略 CITE-seq 抗体标签）
 #   2) 质控：200 < 基因数 < 7500，线粒体比例 < 20%（预设标准，按常规阈值）
@@ -51,6 +51,7 @@ col_group <- c(Control = "#2a78d6", CRSsNP = "#1baf7a", `CRSwNP-Eth` = "#eda100"
 
 # ---------- 1. 读取 ----------
 files <- list.files(raw, pattern = "_filtered\\.tar\\.gz$", full.names = TRUE)
+files <- files[grepl("_(Control|CRSwNP_NP)_", basename(files))]   # 主分析只用对照 5 + 鼻息肉 6
 cat("已下载样本：", length(files), "\n")
 tmp <- file.path(tempdir(), "sc10x")
 objs <- map(files, function(f) {
