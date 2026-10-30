@@ -33,6 +33,7 @@ Run in order from the repository root:
 | `scripts/05_ml_hub_genes.R` | LASSO stability selection, random forest, SVM-RFE on training cohorts only; external validation (AUC, DeLong CI) |
 | `scripts/06_scRNA.R` | Seurat + Harmony integration, cell-type annotation, sample-level pseudobulk tests |
 | `scripts/07_fetch_references.R` | builds the bibliography from PubMed IDs |
+| `scripts/08_robustness.R` | robustness checks: duplicate-sample exclusion, threshold grid, bootstrap AUC CIs, fibroblast-content adjustment, single-cell specificity |
 
 `results/tables/` contains all result tables produced by the scripts.
 `sessionInfo.txt` records the R and package versions used (R 4.6.1).
