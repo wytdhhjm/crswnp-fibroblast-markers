@@ -36,6 +36,7 @@ Run in order from the repository root:
 | `scripts/08_robustness.R` | robustness checks: duplicate-sample exclusion, threshold grid, bootstrap AUC CIs, fibroblast-content adjustment, single-cell specificity |
 | `scripts/09_plos_figures.R` | assembles multi-panel figures as single 300-dpi TIFF files for submission |
 | `scripts/10_make_plos_manuscript.py` | converts the manuscript to the PLOS One LaTeX template |
+| `scripts/11_fix_plos_template.py` | aligns the PLOS version with the official template (title page, abstract, tables, figure placement) |
 
 `results/tables/` contains all result tables produced by the scripts.
 `sessionInfo.txt` records the R and package versions used (R 4.6.1).
