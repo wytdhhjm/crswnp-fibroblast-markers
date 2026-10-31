@@ -46,6 +46,13 @@ dl() {
   fi
 }
 
+# 样本元数据（02_preprocess.R 用 GSE136825 的 Sample_description 把计数矩阵列名对应到 GSM 编号）
+mkdir -p meta
+for g in GSE136825 GSE179265 GSE36830 GSE23552 GSE194282 GSE235711; do
+  [ -s meta/$g.gsm.txt ] || $C --retry 3 -o meta/$g.gsm.txt \
+    "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=$g&targ=gsm&form=text&view=brief"
+done
+
 # 训练集：RNA-seq 计数矩阵
 dl $B/GSE136nnn/GSE136825/suppl/GSE136825_genecounts_20190903.txt.gz GSE136825_counts.txt.gz
 dl $B/GSE179nnn/GSE179265/suppl/GSE179265_readcount_genename.txt.gz  GSE179265_counts.txt.gz

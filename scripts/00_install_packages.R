@@ -8,15 +8,15 @@ options(repos = c(CRAN = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"),
 if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
 
 cran_pkgs <- c(
-  "tidyverse", "data.table", "ggplot2", "ggpubr", "pheatmap", "ggrepel",
-  "glmnet", "randomForest", "e1071", "pROC", "caret",   # 机器学习与 ROC
-  "WGCNA", "rms",                                      # 共表达网络、列线图
-  "Seurat"                                             # 单细胞
+  "tidyverse", "data.table", "ggplot2", "ggrepel", "patchwork", "xml2",
+  "glmnet", "randomForest", "e1071", "pROC",           # 机器学习与 ROC
+  "Seurat", "harmony"                                  # 单细胞
 )
 bioc_pkgs <- c(
-  "GEOquery", "limma", "sva", "clusterProfiler", "org.Hs.eg.db",
-  "enrichplot", "GSVA", "GO.db", "impute", "preprocessCore",
-  "DESeq2", "edgeR", "AnnotationDbi"
+  "GEOquery", "limma", "edgeR", "clusterProfiler", "enrichplot",
+  "org.Hs.eg.db", "AnnotationDbi", "GO.db",
+  "hgu133plus2.db", "huex10sttranscriptcluster.db", "hugene21sttranscriptcluster.db",  # 芯片探针注释
+  "glmGamPoi"
 )
 
 need_bioc <- setdiff(bioc_pkgs, rownames(installed.packages()))
