@@ -10,6 +10,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocMana
 cran_pkgs <- c(
   "tidyverse", "data.table", "ggplot2", "ggrepel", "patchwork", "xml2",
   "glmnet", "randomForest", "e1071", "pROC",           # 机器学习与 ROC
+  "magick",                                            # 组合投稿图片
   "Seurat", "harmony"                                  # 单细胞
 )
 bioc_pkgs <- c(
