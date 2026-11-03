@@ -1,6 +1,6 @@
 # 09_plos_figures.R
 # 把各子图按 PLOS ONE 要求组合成单个文件（每个编号图一个文件，含 A/B/C 标签）
-# 输出：manuscript_plos/figures/Fig1.tif ... Fig4.tif（300 dpi，RGB，LZW 压缩，宽 ≤ 7.5 inch）及同名 PDF 预览
+# 输出：manuscript_plos/figures/Fig1.tif ... Fig7.tif（300 dpi，RGB，LZW 压缩，宽 ≤ 7.5 inch）及同名 PDF 预览
 # PLOS 要求：Fig1.tif、Fig2.tif 命名；多面板合并为一张图；图中不含图注
 
 suppressPackageStartupMessages(library(magick))
@@ -31,17 +31,17 @@ save_fig <- function(img, name) {
   i <- image_info(img); cat(name, i$width, "x", i$height, "px\n")
 }
 
+save_fig(rd("Fig0_workflow"), "Fig1")   # 研究流程图
 save_fig(stackv(lab(fitw(rd("Fig1_meta_volcano"), round(max_w * 0.62)), "A"),
-                lab(fitw(rd("Fig1_forest_top_genes")), "B")), "Fig1")
+                lab(fitw(rd("Fig1_forest_top_genes")), "B")), "Fig2")
 save_fig(image_append(c(lab(fitw(rd("Fig2A_ORA_GO_KEGG"), round(max_w * 0.56)), "A"),
-                        lab(fitw(rd("Fig2B_GSEA_hallmark"), round(max_w * 0.44)), "B"))), "Fig2")
+                        lab(fitw(rd("Fig2B_GSEA_hallmark"), round(max_w * 0.44)), "B"))), "Fig3")
+# 2026-11-02 修订：Fig4 = 机器学习选择 + 仅预留验证集的 AUC（删除训练集 AUC，避免循环论证）+ 随机基因集基线
 save_fig(stackv(lab(fitw(rd("Fig3A_ML_selection")), "A"),
-                lab(fitw(rd("Fig3B_hub_gene_AUC")), "B"),
-                lab(fitw(rd("Fig3C_hub_score_ROC")), "C")), "Fig3")
-# Fig4：左列 A、B 上下排列，右列 C，避免整体过高被压窄
-left  <- stackv(lab(fitw(rd("Fig4A_scRNA_overview"), round(max_w * 0.6)), "A"),
-                lab(fitw(rd("Fig4B_hub_featureplot"), round(max_w * 0.6)), "B"))
-right <- lab(fitw(rd("Fig4C_hub_pseudobulk"), round(max_w * 0.4)), "C")
-save_fig(image_append(c(left, right), stack = FALSE) |> image_background("white") |> image_flatten(), "Fig4")
+                lab(fitw(rd("FigR_auc_withheld")), "B"),
+                lab(fitw(rd("FigR_random_AUC")), "C")), "Fig4")
+save_fig(rd("FigR_specificity"), "Fig5")                # 疾病与部位特异性
+save_fig(rd("FigR_sc1_overview"), "Fig6")               # 单细胞发现数据集 GSE235711（20 个样本）
+save_fig(rd("FigR_sc2_replication"), "Fig7")            # 单细胞复现数据集 GSE276503（推定供者层面）
 save_fig(rd("FigS1_PCA_per_dataset"), "S1_Fig")
 cat("完成\n")

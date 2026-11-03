@@ -38,7 +38,17 @@ refs <- tribble(
   "delong1988",       "3203132",
   "hu2025col10a1",    "40826474",
   "szczypka2020",     "32854348",
-  "porras2023",       "36745102"
+  "porras2023",       "36745102",
+  "hastan2011",       "21605125",
+  "haynes2017",       "27896970",
+  "squair2021",       "34584091",
+  # 2026-11-02 修订新增（PMID 均在 PubMed 核对题目）
+  "intHout2014",      "24548571",   # Hartung-Knapp 校正
+  "chen2016edger",    "27508061",   # edgeR 准似然流程
+  "xie2024",          "39438439",   # GSE276503（单细胞复现数据集）；IDO1+ 成纤维细胞
+  "guo2024",          "39614076",   # CXCL12+ 成纤维细胞
+  "gse338426",        "42718792",   # GSE338426
+  "gse72713",         "27216292"    # GSE72713
 )
 
 tmp <- tempfile(fileext = ".xml")
@@ -48,6 +58,14 @@ stopifnot(system2("curl", c("-s", "--ssl-no-revoke", "--max-time", "120", "--ret
 doc <- read_xml(tmp)
 
 tx <- function(node, xp) { v <- xml_text(xml_find_first(node, xp)); ifelse(is.na(v), "", v) }
+# 作者名中的重音字母转为 LaTeX 写法（plos2025.bst + pdfLaTeX 直接输出 UTF-8 重音字母会错位）
+tex_accents <- function(s) {
+  map <- c("á" = "\\'a", "é" = "\\'e", "í" = "\\'i", "ó" = "\\'o", "ú" = "\\'u",
+           "à" = "\\`a", "è" = "\\`e", "ò" = "\\`o", "ä" = '\\"a', "ö" = '\\"o', "ü" = '\\"u',
+           "ñ" = "\\~n", "ç" = "\\c c", "ø" = "\\o", "å" = "\\aa", "Ö" = '\\"O', "Ü" = '\\"U')
+  for (k in names(map)) s <- gsub(k, paste0("{", map[[k]], "}"), s, fixed = TRUE)
+  s
+}
 esc <- function(s) str_replace_all(s, c("&" = "\\\\&", "%" = "\\\\%", "_" = "\\\\_", "#" = "\\\\#"))
 
 arts <- xml_find_all(doc, "//PubmedArticle")
@@ -56,20 +74,28 @@ info <- map_dfr(arts, function(a) {
   authors <- map_chr(au, function(x) {
     ln <- tx(x, "./LastName"); fn <- tx(x, "./ForeName"); cn <- tx(x, "./CollectiveName")
     if (nzchar(ln)) paste0(ln, ", ", fn) else paste0("{", cn, "}")
-  })
+  }) |> tex_accents()
   year <- tx(a, ".//JournalIssue/PubDate/Year")
   if (!nzchar(year)) year <- str_extract(tx(a, ".//JournalIssue/PubDate/MedlineDate"), "\\d{4}")
   pages <- tx(a, ".//Pagination/MedlinePgn")
   if (!nzchar(pages)) pages <- tx(a, ".//ELocationID[@EIdType='pii']")
   tibble(pmid = tx(a, ".//MedlineCitation/PMID"),
          author = paste(authors, collapse = " and "),
-         title = str_remove(xml_text(xml_find_first(a, ".//ArticleTitle")), "\\.$"),
+         title = str_remove(xml_text(xml_find_first(a, ".//ArticleTitle")), "\\.$") |>
+           str_replace_all(c("²" = "$^{2}$", "β" = "$\\\\beta$", "α" = "$\\\\alpha$", "γ" = "$\\\\gamma$")) |>   # 上标²、希腊字母 pdfLaTeX 无法直接处理
+           (\(t) if (t == toupper(t)) str_to_sentence(t) else t)(),            # 全大写标题改为句首大写
          journal = tx(a, ".//Journal/ISOAbbreviation"),
          year = year, volume = tx(a, ".//JournalIssue/Volume"), number = tx(a, ".//JournalIssue/Issue"),
          pages = str_replace(pages, "-", "--"),
-         doi = tx(a, ".//ArticleIdList/ArticleId[@IdType='doi']"))
+         # 只取本文自身的 DOI（PubmedData/ArticleIdList）；".//" 会误取到参考文献列表中别的文章的 DOI
+         doi = tx(a, "./PubmedData/ArticleIdList/ArticleId[@IdType='doi']"))
 })
 refs <- left_join(refs, info, by = "pmid")
+# PubMed 未收录 DOI 的条目：DOI 经出版商页面/Crossref 人工核对后补入
+doi_manual <- c(friedman2010 = "10.18637/jss.v033.i01", delong1988 = "10.2307/2531595")
+refs <- refs %>% mutate(doi = ifelse(!nzchar(doi) & key %in% names(doi_manual), doi_manual[key], doi))
+# 在线优先发表、尚无卷期页码的条目，页码处标注
+refs <- refs %>% mutate(pages = ifelse(key == "fibro2026", "Online ahead of print", pages))
 missing <- refs %>% filter(is.na(title) | !nzchar(title))
 if (nrow(missing)) stop("未取到：", paste(missing$key, collapse = ", "))
 
@@ -77,9 +103,10 @@ bib <- pmap_chr(refs, function(key, pmid, author, title, journal, year, volume, 
   f <- c(author = author, title = paste0("{", title, "}"), journal = journal, year = year,
          volume = volume, number = number, pages = pages, doi = doi, pmid = pmid)
   f <- f[nzchar(f) & f != "{}"]
-  f[names(f) %in% c("title", "journal")] <- esc(f[names(f) %in% c("title", "journal")])
+  f[names(f) %in% c("title", "journal", "doi")] <- esc(f[names(f) %in% c("title", "journal", "doi")])   # plos2025.bst 把 DOI 当普通文本输出，下划线须转义
   paste0("@article{", key, ",\n", paste0("  ", format(names(f)), " = {", f, "}", collapse = ",\n"), "\n}\n")
 })
 writeLines(bib, "manuscript/references.bib")
+file.copy("manuscript/references.bib", "manuscript_plos/references.bib", overwrite = TRUE)
 print(refs %>% transmute(key, year, journal, title = str_trunc(title, 70)), n = 50)
 cat("\n共", nrow(refs), "条，已写入 manuscript/references.bib\n")
