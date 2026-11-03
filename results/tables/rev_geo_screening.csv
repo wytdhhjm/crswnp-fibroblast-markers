@@ -1,0 +1,56 @@
+accession,n_samples,year,title,decision,category,reason
+GSE136825,103,2019,Whole-transcriptome sequencing reveals heightened inflammation and defective host-defense responses in inflammation and defective host-defense responses in chronic rhinosinusitis with nasal polyps,Included,bulk,"Polyp vs non-CRS inferior turbinate tissue, RNA-seq counts (training)"
+GSE179265,24,2021,Inflammatory molecular endotypes of nasal polyps derived from Caucasian and Japanese populations,Included,bulk,"Polyp vs control uncinate tissue, RNA-seq counts (training)"
+GSE194282,14,2022,Expression data from CRS with nasal polyps (CRSwNP) and normal control,Included,bulk,"Polyp vs control uncinate tissue, array (validation)"
+GSE23552,39,2010,Exon Array Analysis of Asthmatic Chronic Rhinosinusitis with Nasal Polyps,Included,bulk,"Polyp vs normal mucosa, array (validation; inflamed CRSwNP mucosa and allergic rhinitis used in specificity analysis)"
+GSE338426,22,2026,Transcriptomic profiling of chronic rhinosinusitis with nasal polyps,Included (identified by systematic search; post hoc validation),bulk,"Eosinophilic and non-eosinophilic polyps vs control turbinate, RNA-seq counts"
+GSE36830,24,2012,Gene expression analysis of Chronic rhinosinusitis,Included,bulk,"Polyp vs control uncinate tissue, array (validation; CRSsNP and CRSwNP uncinate used in specificity analysis)"
+GSE72713,9,2017,Transcriptome analysis of eosinophilic and noneosinophilic chronic rhinosinusitis with nasal polyps reveals distinct lncRNA expression profiles,Included (identified by systematic search; post hoc validation),bulk,"Eosinophilic and non-eosinophilic polyps vs control sphenoid mucosa, RNA-seq FPKM; n=3 per group"
+GSE235711,20,2025,Immune-Epithelial Interactions and Tissue Remodeling in the Inflammatory Respiratory Nasal Tract [scRNA-seq],Included,single-cell,"Whole-tissue scRNA-seq: control, CRSsNP, CRSwNP ethmoid and polyp"
+GSE276503,33,2024,Myeloid-derived IL1B drives epithelial and stromal cell remodeling during chronic rhinosinusitis and nasal polyps [scRNA-seq],Included (identified by systematic search; replication),single-cell,"Whole-tissue scRNA-seq: healthy and CRSwNP turbinate, polyps"
+GSE39957,4,2012,A global analysis of tandem 3'UTRs in eosinophilic chronic rhinosinusitis with nasal polyps,Excluded,assay,"3'UTR/alternative polyadenylation profiling, 4 samples"
+GSE179268,2,2021,Inflammatory molecular endotypes of nasal polyps derived from Caucasian and Japanese populations,Excluded,duplicate,SubSeries of GSE179269 (2 samples)
+GSE179269,26,2021,Inflammatory molecular endotypes of nasal polyps derived from Caucasian and Japanese populations,Excluded,duplicate,SuperSeries containing GSE179265
+GSE235715,60,2025,Multi-scaled transcriptomics of chronically inflamed nasal epithelium reveals immune-epithelial dynamics and tissue remodeling in nasal polyp formation,Excluded,duplicate,SuperSeries containing GSE235711/GSE235714
+GSE189690,26,2021,Neutrophilic inflammation and epithelial barrier disruption in nasal polyps characterize NSAID-exacerbated respiratory disease,Excluded,no control,Polyps only (N-ERD vs non-N-ERD)
+GSE198950,20,2022,"Tissue Eosinophilia is Effective for Studying Differential Expression of Genes by RNA sequencing, and may offer Superior Insights into Chronic Rhinosinusitis than Study by Polyp Status",Excluded,no data,No processed expression data deposited
+GSE313186,20,2026,Sinus mast cell accumulation and persistence suggest a unique endotype in toxin exposure-associated chronic rhinosinusitis,Excluded,no polyps,Ethmoid tissue from CRSsNP/toxin-exposure cohort; no CRSwNP polyps
+GSE107624,84,2018,Global Transcriptome Analysis during Mucociliary Differentiation of Human Nasal Polyp/Nasal Mucosa Basal Stem/Progenitor Cells,Excluded,not tissue,Cultured or isolated cells / in vitro stimulation
+GSE111634,4,2018,Gene expression profiling in human nasal epithelial cells (HNEpCs) stimulated with eosinophil-derived neurotoxin (EDN),Excluded,not tissue,Cultured or isolated cells / in vitro stimulation
+GSE124926,9,2019,"IL-1beta, IL-23, and TGF-beta drive plasticity of human ILC2s towards IL-17-producing ILCs in nasal inflammation",Excluded,not tissue,Sorted immune cell population
+GSE150846,9,2021,Steroid-resistant human inflammatory ILC2s are marked by CD45RO and elevated in type 2 respiratory diseases,Excluded,not tissue,Sorted immune cell population
+GSE158277,20,2020,Transcriptome analysis identifies Doublesex and Mab-3 Related Transcription Factor (DMRT3) in nasal polyp epithelial cells of patients suffering from Nonsteroidal anti-inflammatory drugs- Exacerbated Respiratory Disease (N-ERD),Excluded,not tissue,Cultured or isolated cells / in vitro stimulation
+GSE172305,4,2022,S100A8 Enhances IL-1β Production from Nasal Epithelial Cells in Eosinophilic Chronic Rhinosinusitis,Excluded,not tissue,Cultured or isolated cells / in vitro stimulation
+GSE174681,10,2021,"Comparisons of Nasal Polyp ASC, Nasal polyp IgD+ (naïve-like) B cells, and Blood naïve B cells",Excluded,not tissue,Sorted immune cell population
+GSE213809,32,2026,Comparative study in gene expression of type 2 cytokine secretion activity of Group 2 innate lymphoid cells (ILC2s) isolated from nasal polyps or peripheral blood of patients with chronic eosinophilic rhinosinusitis with nasal polyps,Excluded,not tissue,Cultured or isolated cells / in vitro stimulation
+GSE22143,18,2011,Transcriptomic impact of microRNAs-449 or microRNAs-34 overexpression in proliferating human airway epithelial cells,Excluded,not tissue,Cultured or isolated cells / in vitro stimulation
+GSE22147,64,2011,microRNAs-449 control vertebrate multi-ciliogenesis by repressing Notch signalling,Excluded,not tissue,SuperSeries of cultured airway epithelium experiments
+GSE243618,6,2023,RNA-seq analysis identifies the effect of PM2.5 on human nasal epithelial cells cultured under air-liquid interface (ALI) conditions until differentiated.,Excluded,not tissue,Cultured or isolated cells / in vitro stimulation
+GSE249160,24,2023,Human apical-out nasal organoids reveal an essential role of matrix metalloproteinases in airway epithelial differentiation,Excluded,not tissue,Cultured or isolated cells / in vitro stimulation
+GSE267331,172,2024,Nasal Brushing Molecular Endotyping Distinguishes CRSwNP Patients with Better Response to Dupilumab,Excluded,not tissue,Nasal brushings (surface epithelium) from a dupilumab trial
+GSE270953,20,2024,Increased Autoreactivity and Maturity in EBI2+ Antibody-Secreting Cells from Nasal Polyps,Excluded,not tissue,Sorted immune cell population
+GSE279240,36,2024,Human intraepithelial mast cell differentiation and effector function are directed by TGF-b signaling,Excluded,not tissue,Sorted immune cell population
+GSE279289,4,2024,Mast cell heterogeneity in human nasal polyps,Excluded,not tissue,Sorted immune cell population
+GSE284820,50,2026,Mechanism of Corynebacterium striatum-mediated inhibition of Staphylococcus aureus-induced epithelial barrier injury and inflammation activation in chronic rhinosinusitis [RNA-Seq],Excluded,not tissue,Cultured epithelial cells / bacterial co-culture
+GSE295436,22,2025,Hepatic leukemia factor directs tissue residency of proinflammatory CD4+ T cells,Excluded,not tissue,Sorted immune cell population
+GSE315521,6,2026,Lactate-Mediated Cross-Talk between KRT15 and GPR68 drives Type 2 Immunity in ECRSwNP,Excluded,not tissue,Cultured or isolated cells / in vitro stimulation
+GSE324445,10,2026,Heterogeneity and Clinical Relevance of Group 2 Innate Lymphoid Cells Subsets in Nasal Polyps,Excluded,not tissue,Sorted immune cell population
+GSE330761,25,2026,CD25 expression marks an activated mast cell population in human nasal polyposis,Excluded,not tissue,Sorted immune cell population
+GSE3874,53,2005,Endothelial cell diversity revealed by global expression profiling,Excluded,off-topic,Endothelial cells from various organs; not nasal polyp tissue
+GSE52505,4,2015,High throughput screening of lipopolysaccharide treatment in nasal fibroblast,Excluded,not tissue,Cultured or isolated cells / in vitro stimulation
+GSE69093,48,2015,Microarray analysis of epithelial and fibroblast cells in chronic rhinosinusitis,Excluded,not tissue,Cultured or isolated cells / in vitro stimulation
+GSE70898,12,2015,Transcriptome profiling of nasal polyp derived human IL17RB positive and negative T-helper cells,Excluded,not tissue,Sorted immune cell population
+GSE70900,12,2015,Transcriptome profiling of T-helper cells from normal nassal mucosa and matched peripheral blood,Excluded,not tissue,Sorted immune cell population
+GSE89809,145,2017,Multi-tissue transcriptomics delineates the diversity of airway T cells functions in asthma,Excluded,not tissue,Airway brushings and sorted T cells in asthma
+GSE235714,40,2025,Immune-Epithelial Interactions and Tissue Remodeling in the Inflammatory Respiratory Nasal Tract [NanoString GeoMx spatial transcriptomics],Excluded,not whole tissue,GeoMx spatial ROIs restricted to PanCK+ epithelium and CD45+ immune cells; no stromal ROIs
+GSE22142,12,2011,Transcriptome analysis during the time course of regeneration of the human airway mucociliary epithelium,Excluded,not tissue,Cultured airway epithelium (regeneration time course)
+GSE250580,266,2024,German cockroach subcutaneous immunotherapy: Impact on nasal responses and allergen-specific immunity among urban children with asthma,Excluded,off-topic,Paediatric cockroach immunotherapy trial; not CRS
+GSE270312,90,2024,The rs6967330 minor allele in CDHR3 increased CRS exacerbations and is associated with an exaggerated interferon response to RV-A and RV-C infections,Excluded,not tissue,Cultured sinonasal epithelial cells infected with rhinovirus
+GSE10406,24,2008,Mucus overproduction,Excluded,population,Paediatric CRS and cystic fibrosis sinus mucosa; no polyp group
+GSE156285,4,2020,Single cell RNA sequencing analyses of cells from human sinonasal tissue,Excluded,sorted/limited single-cell,"Single-cell study of sorted cells, polyps only, brushings or <6 samples"
+GSE179292,4,2021,Single cell analysis of CD4 T cells and an ILCs in nasal polyps,Excluded,sorted/limited single-cell,"Single-cell study of sorted cells, polyps only, brushings or <6 samples"
+GSE196169,19,2022,Single-Cell transcriptomics comparison of nasal polyps in patients with AERD and CRSwNP.,Excluded,sorted/limited single-cell,"Single-cell study of sorted cells, polyps only, brushings or <6 samples"
+GSE202100,5,2022,Single cell sequencing of mucosal brushings from human nasal polyp,Excluded,sorted/limited single-cell,"Single-cell study of sorted cells, polyps only, brushings or <6 samples"
+GSE249159,10,2025,scRNA-seq of CD4+ T cells from mouse allergic airway inflammation model and human patients with eosinophilic chronic rhinosinusitis (ECRS),Excluded,species,Mainly mouse; human samples are sorted CD4+ T cells
+GSE255544,8,2024,Single cell RNA sequencing and single cell TCR sequencing of Type 2 lymphocytes in human nasal polyps,Excluded,sorted/limited single-cell,"Single-cell study of sorted cells, polyps only, brushings or <6 samples"
+GSE140900,113,2019,"Dual blockade of IL-4 and IL-13 with dupilumab, an IL-4Ra antibody, is required to broadly inhibit type 2 inflammation",Excluded,species,Mouse lung

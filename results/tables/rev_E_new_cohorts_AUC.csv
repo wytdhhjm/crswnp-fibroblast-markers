@@ -1,0 +1,5 @@
+set,AUC,pct_random_ge
+Consensus 4 genes,1,0.051
+POSTN,0.8035714285714286,NA
+Classic 5-gene score,0.7946428571428571,NA
+Random 4 genes (median),0.9017857142857143,NA
