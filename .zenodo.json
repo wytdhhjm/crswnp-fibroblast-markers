@@ -1,0 +1,20 @@
+{
+  "title": "Analysis code for: Multi-cohort transcriptomic and single-cell analysis identifies polyp-associated expression of COL10A1 in fibroblasts in chronic rhinosinusitis with nasal polyps",
+  "description": "Numbered R and shell scripts that reproduce all analyses, tables and figures of the manuscript from public GEO data (systematic dataset search, multi-cohort meta-analysis, consensus-gene selection, baseline and specificity analyses, and two single-cell datasets), together with all result tables.",
+  "creators": [
+    {
+      "name": "Wu, Yitao",
+      "affiliation": "School of Basic Medical Sciences, Xinjiang Medical University"
+    }
+  ],
+  "upload_type": "software",
+  "license": "MIT",
+  "keywords": [
+    "chronic rhinosinusitis with nasal polyps",
+    "transcriptomics",
+    "meta-analysis",
+    "single-cell RNA sequencing",
+    "fibroblasts",
+    "COL10A1"
+  ]
+}
