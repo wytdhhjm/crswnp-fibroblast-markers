@@ -131,7 +131,7 @@ Yitao Wu\textsuperscript{1*}
 \bigskip
 
 % Use the asterisk to denote corresponding authorship and provide email address in note below.
-* wytdhhjm@outlook.com
+* wytdhhjm@stu.xjmu.edu.cn
 
 \end{flushleft}
 % Please keep the abstract below 300 words

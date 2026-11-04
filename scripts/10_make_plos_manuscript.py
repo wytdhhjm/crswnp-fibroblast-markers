@@ -174,7 +174,7 @@ Yitao Wu\textsuperscript{1*}
 \textbf{1} School of Basic Medical Sciences, Xinjiang Medical University, Urumqi, Xinjiang, China
 \\
 \bigskip
-* wytdhhjm@outlook.com
+* wytdhhjm@stu.xjmu.edu.cn
 \end{flushleft}
 
 \section*{Abstract}
